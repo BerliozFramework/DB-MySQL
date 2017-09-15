@@ -322,7 +322,7 @@ class DB implements AppAwareInterface
                     // Add charset on string value
                     if (($quote = $this->quote((string) $text)) !== false) {
                         $charset = $this->encodingToCharset();
-                        $text = (!is_null($charset) ? '_' . $charset : '') . $quote;
+                        $text = (!is_null($charset) ? '_' . $charset : '') . (string) $quote;
                     } else {
                         throw new DBException(sprintf('Unable to protect data "%s" for MySQL', (string) $text));
                     }
